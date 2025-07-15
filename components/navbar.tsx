@@ -4,6 +4,7 @@ import SearchBar from "./search-bar";
 import MyAccount from "./my-account";
 import { Heart, ShoppingCart, TruckElectric } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
+import NavHoverMenu from "./nav-hover-menu";
 
 const Navbar = () => {
   return (
@@ -11,21 +12,27 @@ const Navbar = () => {
       <div className=" flex flex-col items-center justify-center  cursor-pointer">
         <Image src="/computer.svg" alt="Logo" width={50} height={50} />
         <p className="font-bold text-lg hidden lg:flex items-center justify-center text-center">
-            Genz
+          Genz
           <span className="ml-2 text-red-500 font-bold">Computers</span>
         </p>
       </div>
       <div className="hidden lg:flex items-center justify-center gap-12">
-        <p className="text-center">Products</p>
-        <p className="text-center">Pre-Built PC</p>
-        <p className="text-center">Custom PC</p>
-        <p className="text-center">Gamers Choice</p>
+        <NavHoverMenu label="Products" items={["Option 1", "Option 2"]} />
+        <NavHoverMenu label="Pre-Built PC" items={["Gaming", "Office"]} />
+        <NavHoverMenu
+          label="Custom PC"
+          items={["Build Your Own", "Consult Expert"]}
+        />
+        <NavHoverMenu
+          label="Gamers Choice"
+          items={["Top Rated", "New Arrivals"]}
+        />
       </div>
       <div className="flex items-center justify-center gap-4">
         <SearchBar />
         <ThemeToggle />
       </div>
-        <MyAccount />
+      <MyAccount />
       <div className="flex items-center justify-center gap-4">
         <TruckElectric className="md:w-8 md:h-8" />
 

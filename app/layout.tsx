@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,10 +33,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
+        <ScrollProgress className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-purple-500" />
+        <SmoothCursor />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
