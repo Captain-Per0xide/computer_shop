@@ -1,5 +1,4 @@
 import React from "react";
-import ProductCard from "./product-card";
 import SingleCardCarousel from "./single-card-carousel";
 import PosterCard from "./poster-card";
 const dummyProducts = [
