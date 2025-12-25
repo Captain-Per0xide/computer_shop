@@ -4,12 +4,64 @@ import FirstPart from "@/components/first-part";
 import Navbar from "@/components/navbar";
 import SecondPart from "@/components/second-part";
 
+import PeripheralCategories from "@/components/peripheral-categories";
+// import PopularCategory from "@/components/popular-category";
+import CustomerReviews from "@/components/customer-reviews";
+const fakeCustomerReviews = [
+  {
+    id: 1,
+    name: "Amit Sharma",
+    review: "Amazing service and super fast delivery! The product quality exceeded my expectations.",
+    rating: 5,
+    avatar: undefined,
+  },
+  {
+    id: 2,
+    name: "Priya Verma",
+    review: "Great prices and a fantastic selection. Will definitely shop here again!",
+    rating: 4,
+    avatar: undefined,
+  },
+  {
+    id: 3,
+    name: "Rahul Singh",
+    review: "Customer support was very helpful and resolved my issue quickly.",
+    rating: 5,
+    avatar: undefined,
+  },
+  {
+    id: 4,
+    name: "Sneha Patel",
+    review: "Loved the packaging and the product works perfectly. Highly recommended!",
+    rating: 5,
+    avatar: undefined,
+  },
+  {
+    id: 5,
+    name: "Vikram Joshi",
+    review: "Good experience overall, but delivery took a day longer than expected.",
+    rating: 4,
+    avatar: undefined,
+  },
+  {
+    id: 6,
+    name: "Meera Nair",
+    review: "Website is easy to use and checkout was smooth. Will buy again!",
+    rating: 5,
+    avatar: undefined,
+  },
+];
+
 // Example data for the AdProductGrid component
 const exampleFeaturedPoster = {
   id: 1,
   image: "/Poster/msi-rtx-4060-gpu-deal-02.webp",
   ctaText: "SHOP NOW",
-  backgroundColor: "bg-gradient-to-br from-purple-600 to-stone-600"
+}
+const exampleFeaturedProcessor = {
+  id: 1,
+  image: "/Poster/msi-rtx-4060-gpu-deal-02.webp",
+  ctaText: "SHOP NOW",
 }
 
 const exampleProducts = [
@@ -86,6 +138,80 @@ const exampleProducts = [
     soldOut: false
   }
 ]
+const exampleProcessors = [
+  {
+    id: 1,
+    name: "AMD Ryzen 3 3200G Processor with Radeon Vega 8 Graphics",
+    image: "/processor-1.png",
+    originalPrice: 13500,
+    salePrice: 5600,
+    discount: 59,
+    soldOut: false
+  },
+  {
+    id: 2,
+    name: "AMD Ryzen 5 3400G Processor with Radeon RX Vega 11 Graphics",
+    image: "/processor-2.png",
+    originalPrice: 21500,
+    salePrice: 6350,
+    discount: 70,
+    soldOut: false
+  },
+  {
+    id: 3,
+    name: "Intel Core i3-9350KF Processor",
+    image: "/processor-3.png",
+    originalPrice: 9450,
+    salePrice: 8150,
+    discount: 14,
+    soldOut: false
+  },
+  {
+    id: 4,
+    name: "AMD Ryzen 5 5600X Processor",
+    image: "/processor-4.png",
+    originalPrice: 34400,
+    salePrice: 12700,
+    discount: 63,
+    soldOut: false
+  },
+  {
+    id: 5,
+    name: "Intel Core i5-10400 Processor",
+    image: "/processor-5.png",
+    originalPrice: 19500,
+    salePrice: 13950,
+    discount: 28,
+    soldOut: false
+  },
+  {
+    id: 6,
+    name: "AMD Ryzen 5 5600F Desktop Processor",
+    image: "/processor-6.png",
+    originalPrice: 15000,
+    salePrice: 9950,
+    discount: 34,
+    soldOut: false
+  },
+  {
+    id: 7,
+    name: "AMD Ryzen 5 8500G Processor with Radeon Graphics",
+    image: "/processor-7.png",
+    originalPrice: 30000,
+    salePrice: 15000,
+    discount: 50,
+    soldOut: false
+  },
+  {
+    id: 8,
+    name: "Intel Core Ultra 5 225F Processor",
+    image: "/processor-8.png",
+    originalPrice: 34000,
+    salePrice: 17000,
+    discount: 50,
+    soldOut: false
+  }
+];
 const bestSellingMotherboards = [
   {
     id: 1,
@@ -127,12 +253,66 @@ const bestSellingMotherboards = [
     buttonLabel: "Buy Now",
   },
 ];
+
+const peripheralCategories = [
+  {
+    id: 1,
+    image: "/printer.webp"
+  },
+  {
+    id: 2,
+    image: "/laptop-cooler.webp"
+  },
+  {
+    id: 3,
+    image: "/Pendrive.webp"
+  },
+  {
+    id: 4,
+    image: "/router.webp"
+  },
+  {
+    id: 5,
+    image: "/ups.webp"
+  },
+  {
+    id: 6,
+    image: "/pentablet.webp"
+  },
+  {
+    id: 7,
+    image: "/webcam.webp"
+  },
+  {
+    id: 8,
+    image: "/surge-protector.webp"
+  },
+  {
+    id: 9,
+    image: "/speaker.webp"
+  },
+  {
+    id: 10,
+    image: "/software.webp"
+  }
+];
+
 export default function Home() {
   return (
     <div className="p-4">
       <Navbar />
       <FirstPart />
       <SecondPart />
+      {/* <PopularCategory categories={[
+        { id: 1, image: "/processor.webp" },
+        { id: 2, image: "/motherboard.webp" },
+        { id: 3, image: "/cpu-cooler.webp" },
+        { id: 4, image: "/memory.webp" },
+        { id: 5, image: "/storage.webp" },
+        { id: 6, image: "/monitor.webp" },
+        { id: 7, image: "/power-supply.webp" },
+        { id: 8, image: "/cabinet.webp" },
+      ]} /> */}
       <AdProductGrid
         featuredPoster={exampleFeaturedPoster}
         categoryTitle="New Gen Graphics Cards"
@@ -140,6 +320,15 @@ export default function Home() {
         maxProducts={8}
       />
       <BestSellingCarousel title="Best Selling Motherboards" products={bestSellingMotherboards} />
+      <AdProductGrid
+        featuredPoster={exampleFeaturedProcessor}
+        categoryTitle="New Gen Processors"
+        products={exampleProcessors}
+        maxProducts={8}
+      />
+
+      <PeripheralCategories categories={peripheralCategories} />
+      <CustomerReviews reviews={fakeCustomerReviews} />
     </div>
   );
 }

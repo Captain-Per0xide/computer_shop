@@ -47,7 +47,7 @@ const AdProductGrid = ({
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Featured Poster - Left Side */}
                 <div className="lg:col-span-1">
-                    <Card className={`h-full overflow-hidden ${featuredPoster.backgroundColor || 'bg-gradient-to-br from-gray-400 to-gray-600'}`}>
+                    <Card className={`h-full overflow-hidden ${featuredPoster.backgroundColor || 'bg-gradient-to-br from-gray-800 via-gray-900 to-black'}`}>
                         <CardContent className=" flex flex-col justify-between text-white">
  
                                 <Image
@@ -60,7 +60,7 @@ const AdProductGrid = ({
                             
 
                             <div className="mt-6">
-                                <InteractiveHoverButton className="w-full bg-white text-blue-600 hover:bg-gray-100 border-0">
+                                <InteractiveHoverButton className="w-full bg-white text-red-600 hover:bg-gray-100 border-0">
                                     {featuredPoster.ctaText}
                                 </InteractiveHoverButton>
                             </div>
